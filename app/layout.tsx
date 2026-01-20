@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import { Providers } from '@/components/providers'
 import './globals.css'
@@ -42,6 +43,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <Script
+          defer
+          src="https://analytics.helsky-labs.com/script.js"
+          data-website-id="b6221c75-105c-4f15-a48b-857175d660c8"
+        />
+      </head>
       <body className={`${inter.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>{children}</Providers>
       </body>
