@@ -9,14 +9,22 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://daysasnumbers.app'
+
 export const metadata: Metadata = {
   title: {
     default: 'DaysAsNumbers - Visual Time Awareness',
     template: '%s | DaysAsNumbers',
   },
   description: '365 squares. One year. Watch them fill as days pass. Feel time. Make it count.',
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  metadataBase: new URL(siteUrl),
   keywords: ['memento mori', 'time', 'life', 'mindfulness', 'reflection', 'stoic', 'productivity', 'visual', 'minimal', 'ios app'],
+  authors: [{ name: 'Hel Rabelo', url: 'https://github.com/helrabelo' }],
+  creator: 'Hel Rabelo',
+  publisher: 'Helsky Labs',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'DaysAsNumbers - Visual Time Awareness',
     description: '365 squares. One year. Watch them fill as days pass. Feel time. Make it count.',
@@ -29,11 +37,20 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DaysAsNumbers - Visual Time Awareness',
     description: '365 squares. One year. Watch them fill as days pass.',
+    creator: '@helrabelo',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  category: 'lifestyle',
 }
 
 export default function RootLayout({
